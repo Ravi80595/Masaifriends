@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mensPage</title>
+</head>
+<style>
+    #container{
+        /* background-color: aqua; */
+        width: 85%;
+        height: auto;
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap:30px;
+        text-align: center;
+    }
+    #container>div>h1{
+        text-align: left;
+        margin-bottom: -20px;
+    }
+    #head+h1{
+        /* background-color: orangered; */
+        font-weight: 200;
+    }
+    #container>div>div{
+        /* background-color: rgb(128, 0, 53); */
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        width: 70%;
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    #container>div>div>h1:nth-child(2){
+       text-decoration: line-through;
+    }
+    #container>div>div>h1:nth-child(3){
+       color:green
+    }
+    #container>div>div>h1{
+        /* border: 1px solid red; */
+        text-align: left    ;
+    }
+    #container>div>img{
+        text-align: center  ;
+        width:50%;
+        height: 400px;
+        margin-left: 60px;
+        
+    }
+</style>
+<body>
+    <div id="container"> </div>
+</body>
+</html>
+<script>
+
+    objArr=[
+        {image:"https://ih1.redbubble.net/image.1061595200.1301/ssrco,mhoodie,mens,101010:01c5ca27c6,front,tall_three_quarter,x1000-bg,f8f8f8.1.jpg",
+        heading:"Pause",subhead:"Men Cotton Long Sleeves Shrug",num1:"₹359",num2:"₹1,499",num3:"-76%"},
+        {image:"https://assetscdn1.paytm.com/images/catalog/product/A/AP/APPJUBINATION-SJERS295568BD3913AD/1562955990957_0..jpg?imwidth=320&impolicy=hq",
+        heading:"Jubination",subhead:"Men Wool Sleeveless Sweater Pack Of 1",num1:"₹799",num2:"₹1,499",num3:"-47%"}
+    ]
+
+     objArr.forEach(function(ele){  //--->
+
+        let box=document.createElement("div");
+            let img=document.createElement("img");
+                img.setAttribute("src",ele.image);
+
+            let head1_h1=document.createElement("h1");
+                head1_h1.innerText=ele.heading;
+                head1_h1.setAttribute("id","head");
+
+            let head2_h1=document.createElement("h1");
+                head2_h1.innerText=ele.subhead;
+
+            let sub_box=document.createElement("div");
+                let sub1_h1=document.createElement("h1");
+                    sub1_h1.innerText=ele.num1;
+
+                let sub2_h1=document.createElement("h1");
+                    sub2_h1.innerText=ele.num2;
+
+                let sub3_h1=document.createElement("h1");
+                    sub3_h1.innerText=ele.num3;
+
+        sub_box.append(sub1_h1,sub2_h1,sub3_h1);
+        box.append(img,head1_h1,head2_h1,sub_box);
+        document.querySelector("#container").append(box)
+      })
+</script>
